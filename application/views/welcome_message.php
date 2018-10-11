@@ -16,10 +16,10 @@
 				{
 					CreationConference();
 				});
-				// $('#voterConference').click(function()
-				// {
-				// 	VoterConference();
-				// }),
+				$('#voterConference').click(function()
+				{
+					VoterConference();
+				});
 			}
 		)
 	</script>

@@ -29,4 +29,19 @@ class Welcome extends CI_Controller {
 		$data["technos"] = $this->Model_conference->getTechnos();
 		$this->load->view("creationConference_insertion", $data);
 	}
+
+	public function ListeConference()
+	{
+		$this->load->model("Model_conference");
+		$data["Conferences"] = $this->Model_conference->getConference();
+		$this->load->view("listeConference", $data);
+	}
+
+	public function AddVote()
+	{
+		$this->load->model("Model_conference");
+		$this->Model_conference->addVote($_GET["tab1"], $_GET["tab2"]);
+		$data["Conferences"] = $this->Model_conference->getConference();
+		$this->load->view("listeConference", $data);
+	}
 }

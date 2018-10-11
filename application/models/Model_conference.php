@@ -7,6 +7,12 @@
             return $sql->result();
         }
 
+        function getConference()
+        {
+            $sql = $this->db->query("select idconference, titre, nbvotes from conference");
+            return $sql->result();
+        }
+
         function getNiveaux()
         {
             $sql = $this->db->query("select idniveau, niveau from niveau");
@@ -39,6 +45,19 @@
                 if ($tabTechnoUtil[$i] == "true")
                 {
                     $sql = $this->db->query("insert into utiliser (idconference, idtechno) values ('".$num."', '".$tabTechno[$i]."')");
+                }
+            }
+        }
+
+        function addVote($tab1, $tab2)
+        {
+            $tab1 = explode(",", $tab1);
+            $tab2 = explode(",", $tab2);
+            for ($i=0; $i<count($tab1); $i++)
+            {
+                if ($tab2[$i] == "true")
+                {
+                    $sql = $this->db->query("update conference set nbvotes=nbvotes+1 where idconference=".$tab1[$i]."");
                 }
             }
         }
