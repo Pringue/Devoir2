@@ -93,6 +93,7 @@ function AjouterVote()
             data:'tab1='+tabConference+"&tab2="+tabConferenceVote,
             success:function(data)
             {
+                alert("Votes mis à jour");
                 $("#creationConference").empty();
                 $("#listeConference").empty();
                 $("#listeConference").append(data);
